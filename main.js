@@ -186,23 +186,3 @@ function my_keydown(e)
 		
 }
 
-function up()
-{
-	//Define function to move the car upward
-}
-
-function down()
-{
-	//Define function to move the car downward
-}
-
-function left()
-{
-	//Define function to move the car left side
-}
-
-function right()
-{
-	//Define function to move the car right side
-}
-}
