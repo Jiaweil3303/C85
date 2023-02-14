@@ -1,100 +1,47 @@
-canvas = document.getElementById('myCanvas');
-ctx = canvas.getContext("2d");
-
-
-random_number = Math.floor(Math.random() * 4);
-console.log(random_number);
-car_width = 100;
-car_height = 150;
-
-
-car_x = 10;
-car_y = 320;
-
-function add() {
-    background_imgTag = new Image(); //defining a variable with a new image
-    background_imgTag.onload = uploadBackground; // setting a function, onloading this variable
-    background_imgTag.src = "parkingLot.jpg";   // load image
-
-    car_imgTag = new Image(); //defining a variable with a new image
-    car_imgTag.onload = uploadcar; // setting a function, onloading this variable
-    car_imgTag.src = "car2.png";   // load image
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+	background-image: url("concrete-road.jpg");
+    background-position: center;
+    background-size: cover;
 }
-
-function uploadBackground() {
-    ctx.drawImage(background_imgTag, 0, 0, canvas.width, canvas.height);
-}
-
-function uploadcar() {
-    ctx.drawImage(car_imgTag, car_x, car_y, car_width, car_height);
-}
-
-
-window.addEventListener("keydown", my_keydown);
-
-function my_keydown(e)
+#myCanvas
 {
-    keyPressed = e.keyCode;
-    console.log(keyPressed);
-        if(keyPressed == '38')
-        {
-            up();
-            console.log("up");
-        }
-        if(keyPressed == '40')
-        {
-            down();
-            console.log("down");
-        }
-        if(keyPressed == '37')
-        {
-            left();
-            console.log("left");
-        }
-        if(keyPressed == '39')
-        {
-            right();
-            console.log("right");
-        }
+    margin-top: 30px;
+	border-width:10px;
+	background-color: white; 
+	border-style:ridge;
 }
 
-function up()
+h1,h3,h4
 {
-    if(car_y >=0)
-    {
-        car_y = car_y - 10;
-        
-         uploadBackground();
-         uploadcar();
-    }
+	color: rgb(255, 241, 43) !important;
 }
-function down()
-{
-    if(car_y <=500)
-    {
-        car_y =car_y+ 10;
-        
-        uploadBackground();
-		uploadcar();
-    }
-}
-function left() 
-{
-    if(car_x >= 0)
-    {
-        car_x =car_x - 10;
-        
-        uploadBackground();
-         uploadcar();
-    }
-}
-function right()
-{
-    if(car_x <= 700)
-    {
-        car_x =car_x + 10;
-        
-        uploadBackground();
-        uploadcar();
-   }
-}
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<title>Valet Parking </title>
+</head>
+<body onload="add();">
+
+<center>
+<h1>Valet Parking</h1>
+<h3>Move the green car with arrow keys</h3>
+<h4>
+	<b class="text-danger">NOTE : </b> IF CAR IS NOT VISIBLE PRESS ANY ARROW KEY
+</h4>
+
+	<!--- Create Canvas--->
+	<canvas id="myCanvas" width="800" height="600"></canvas>
+
+
+</center>
+<script src="main.js">
+</script>
+</body>
+</html>
